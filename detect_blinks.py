@@ -17,3 +17,13 @@ def eye_aspect_ratio(eye):
     ear = (A + B)/(2.0 * C)
 
     return ear
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-p", "--shape-predictor", required=True)
+args = vars(ap.parse_args())
+
+EYE_AR_THRESH = 0.2
+EYE_AR_CONSEC_FRAMES = 2
+
+COUNTER = 0
+TOTAL = 0
