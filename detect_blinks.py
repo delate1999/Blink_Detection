@@ -62,6 +62,15 @@ while True:
         cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)
         cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
 
+        if ear < EYE_AR_THRESH:
+            COUNTER += 1
+
+        else:
+            if COUNTER >= EYE_AR_CONSEC_FRAMES:
+                TOTAL += 1
+
+            COUNTER = 0
+
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1)
 
