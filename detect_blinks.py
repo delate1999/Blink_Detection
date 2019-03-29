@@ -47,7 +47,13 @@ while True:
     rects = detector(gray, 0)
 
     for rect in rects:
-        pass
+        shape = predictor(gray, rect)
+        shape = face_utils.shape_to_np(shape)
+
+        leftEye = shape[lStart:lEnd]
+        rightEye = shape[rStart:rEnd]
+        leftEAR = eye_aspect_ratio(leftEye)
+        rightEAR = eye_aspect_ratio(rightEye)
 
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1)
