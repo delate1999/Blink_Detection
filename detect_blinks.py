@@ -57,6 +57,11 @@ while True:
 
         ear = (leftEAR + rightEAR) / 2.0
 
+        leftEyeHull = cv2.convexHull(leftEye)
+        rightEyeHull = cv2.convexHull(rightEye)
+        cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)
+        cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
+
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1)
 
