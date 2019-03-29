@@ -55,6 +55,8 @@ while True:
         leftEAR = eye_aspect_ratio(leftEye)
         rightEAR = eye_aspect_ratio(rightEye)
 
+        ear = (leftEAR + rightEAR) / 2.0
+
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1)
 
