@@ -27,3 +27,14 @@ EYE_AR_CONSEC_FRAMES = 2
 
 COUNTER = 0
 TOTAL = 0
+
+print("[INFO} loading facial landmark predictor...")
+detector = dlib.get_frontal_face_detector()
+predictor = dlib.shape_predictor(args["shape_predictor"])
+
+(lStart, lEnd) = face_utils.FACIAL_LANDMARKS_IDXS["left_eye"]
+(rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
+
+print("[INFO] starting video stream...")
+vs = VideoStream(src=0).start()
+time.sleep(1.0)
