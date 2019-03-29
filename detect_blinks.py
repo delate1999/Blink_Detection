@@ -38,3 +38,22 @@ predictor = dlib.shape_predictor(args["shape_predictor"])
 print("[INFO] starting video stream...")
 vs = VideoStream(src=0).start()
 time.sleep(1.0)
+
+while True:
+    frame = vs.read()
+    frame = imutils.resize(frame, width=450)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    rects = detector(gray, 0)
+
+    for rect in rects:
+        pass
+
+    cv2.imshow("Frame", frame)
+    key = cv2.waitKey(1)
+
+    if key == ord('q'):
+        break
+
+cv2.destroyAllWindows()
+vs.stop()
